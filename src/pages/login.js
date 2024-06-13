@@ -91,7 +91,7 @@ export default function Home() {
  
        const URL = process.env.NEXT_PUBLIC_API_URL_V1
         return axios({
-            url: `${URL}users/login`,
+            url: `${URL}/users/login`,
             method: 'POST',
             data,
             'headers': {
