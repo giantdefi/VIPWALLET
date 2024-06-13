@@ -91,7 +91,7 @@ export default function Home() {
  
        const URL = process.env.NEXT_PUBLIC_API_URL_V1
         return axios({
-            url: `${URL}/users/login`,
+            url: `${URL}users/login`,
             method: 'POST',
             data,
             'headers': {
@@ -134,7 +134,7 @@ export default function Home() {
             }).catch(function (error) {
                 console.log(error)
                 setSpinner(false)
-                return dispatch(setModalMessage({ type: 'danger', title: "Network Error!", message: 'Please check your Internet connection' }))
+                return dispatch(setModalMessage({ type: 'danger', title: "Network Error!", message:error }))
 
             })
     }

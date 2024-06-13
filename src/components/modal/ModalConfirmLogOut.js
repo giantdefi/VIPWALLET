@@ -26,7 +26,6 @@ export default function ModalConfirmLogOut() {
     const router = useRouter()
     const dispatch = useDispatch()
     const [spinner, setSpinner] = useState(false)
-    const { isLogin, isctive } = useSelector((state) => state.AuthReducer)
     const { modalConfirmLogOut } = useSelector((state) => state.ModalReducer)
     
 
