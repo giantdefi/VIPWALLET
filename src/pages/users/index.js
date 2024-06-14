@@ -93,7 +93,7 @@ export default function Users() {
 
                 <div className="w-full flex-between justify-center items-center gap-3 mt-2">
 
-                    <button onClick={() => handleMovePage('users/network')} className="btn_menu_user w-1/4 h-[90px] ">
+                    <button onClick={() => handleMovePage('users/network')} className="btn_menu_user w-1/3 h-[90px] ">
                         <div className=" flex flex-col justify-center items-center">
                             {menuSpinner && itemLink == "users/network" ?
                                 <svg style={{ maxWidth: 40 }} role="status" className="inline w-9 h-9 text-gray-200 animate-spin dark:text-gray-600 fill-red-800" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +108,7 @@ export default function Users() {
                         </div>
                     </button>
 
-                    <button onClick={() => handleMovePage('users/matching-bonus')} className="btn_menu_user w-1/4 h-[90px]">
+                    <button onClick={() => handleMovePage('users/matching-bonus')} className="btn_menu_user w-1/3 h-[90px]">
                         <div className=" flex flex-col justify-center items-center">
                             {menuSpinner && itemLink == "users/matching-bonus" ?
                                 <svg style={{ maxWidth: 40 }} role="status" className="inline w-9 h-9 text-gray-200 animate-spin dark:text-gray-600 fill-red-800" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,7 +123,7 @@ export default function Users() {
                         </div>
                     </button>
 
-                    <button onClick={() => handleMovePage('users/withdrawal')} className="btn_menu_user w-1/4 h-[90px]">
+                    <button onClick={() => handleMovePage('users/withdrawal')} className="btn_menu_user w-1/3 h-[90px]">
                         <div className=" flex flex-col justify-center items-center">
                             {menuSpinner && itemLink == "users/withdrawal" ?
                                 <svg style={{ maxWidth: 40 }} role="status" className="inline w-9 h-9 text-gray-200 animate-spin dark:text-gray-600 fill-red-800" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -146,7 +146,7 @@ export default function Users() {
 
 
                 <div className="w-full flex-between justify-center items-center gap-3 mt-2">
-                    <button onClick={() => handleMovePage('users/confirmation')} className="btn_menu_user w-1/4 h-[90px]">
+                    <button onClick={() => handleMovePage('users/confirmation')} className="btn_menu_user w-1/3 h-[90px]">
                         <div className=" flex flex-col justify-center items-center">
                             {menuSpinner && itemLink == "users/confirmation" ?
                                 <svg style={{ maxWidth: 40 }} role="status" className="inline w-9 h-9 text-gray-200 animate-spin dark:text-gray-600 fill-red-800" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +164,7 @@ export default function Users() {
                  
 
 
-                    <button onClick={() => handleMovePage('users/send-e-wallet')} className="btn_menu_user w-1/4 h-[90px]">
+                    <button onClick={() => handleMovePage('users/send-e-wallet')} className="btn_menu_user w-1/3 h-[90px]">
                         <div className=" flex flex-col justify-center items-center">
                             {menuSpinner && itemLink == "users/send-e-wallet" ?
                                 <svg style={{ maxWidth: 40 }} role="status" className="inline w-9 h-9 text-gray-200 animate-spin dark:text-gray-600 fill-red-800" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -195,8 +195,8 @@ export default function Users() {
                             }
                         </div>
                     </button>:
-                     <button onClick={() => handleMovePage('settings/update-profile')}
-                     className='btn_menu_user w-1/4 h-[90px]'>
+                     <button onClick={() => handleMovePage('settings/update-profile')}  className='btn_menu_user w-1/3 h-[90px]'>
+                   
                      <div className=" flex flex-col justify-center items-center">
                          {menuSpinner && itemLink == "settings/update-profile" ?
                              <svg style={{ maxWidth: 40 }} role="status" className="inline w-9 h-9 text-gray-200 animate-spin dark:text-gray-600 fill-red-800" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
