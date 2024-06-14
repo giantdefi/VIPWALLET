@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   modalMessage: false, // will consist ( true/false, modalType, message )
-  modalLanguage: false,
+  modalActivateUser: false,
   modalConfirmLogOut: false, 
   modalConfirmTopUp : false,
   modalWarningBuyPackage : false
@@ -15,8 +15,8 @@ export const modalSlice = createSlice({
     setModalMessage: (state, action) => {
       state.modalMessage = action.payload
     },
-    setModalLanguage: (state, action) => {
-      state.modalLanguage = action.payload
+    setModalActivateUser: (state, action) => {
+      state.modalActivateUser = action.payload
     },
     setModalConfirmLogOut: (state, action) => {
       state.modalConfirmLogOut = action.payload
@@ -32,7 +32,7 @@ export const modalSlice = createSlice({
 
 });
 
-export const { resetModal, setModalMessage, setModalLanguage, setModalConfirmLogOut, setModalConfirmTopUp, setModalWarningBuyPackage
+export const { resetModal, setModalMessage, setModalActivateUser, setModalConfirmLogOut, setModalConfirmTopUp, setModalWarningBuyPackage
 } = modalSlice.actions;
 
 export default modalSlice.reducer;

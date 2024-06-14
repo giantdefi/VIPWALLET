@@ -6,7 +6,7 @@ import ModalMessage from "components/modal/ModalMessage";
 
 import ModalConfirmLogOut from "components/modal/ModalConfirmLogOut"; 
 import ModalConfirmTopUp from "components/modal/ModalConfirmTopUp"; 
-import ModalWarningBuyPackage from "components/modal/ModalWarningBuyPackage"; 
+import ModalActivateUser from "components/modal/ModalActivateUser"; 
 import PlaySound from "sound/PlaySound";
 
 //--- redux store---------------------------------------
@@ -17,8 +17,7 @@ import { useSelector, useDispatch } from 'react-redux';
 export default function MainLayout({ children }) { // not used yet!
 
 
-  const { modalMessage, modalLanguage, modalConfirmLogOut, modalConfirmTopUp, modalWarningBuyPackage } = useSelector((state) => state.ModalReducer)
-  const { lang } = useSelector((state) => state.SettingReducer)
+  const { modalMessage, modalActivateUser, modalConfirmLogOut, modalConfirmTopUp, modalWarningBuyPackage } = useSelector((state) => state.ModalReducer)
 
  
   return (
@@ -37,19 +36,11 @@ export default function MainLayout({ children }) { // not used yet!
         </div>
       </div>
 
-      {/* {modalProcess && <ModalProcess />} */}
-
       {modalMessage && <ModalMessage />}
 
-      {/* {modalAllowance && <ModalAllowance />} */}
-
-      {modalLanguage && <ModalLanguage />}
-
-      {/* {modalConnectBinance && <ModalConnectBinance />} */}
-
       {modalConfirmLogOut && <ModalConfirmLogOut />}
-      {modalConfirmTopUp && <ModalConfirmTopUp />}
-      {modalWarningBuyPackage && <ModalWarningBuyPackage />}
+      {/* {modalConfirmTopUp && <ModalConfirmTopUp />} */}
+      {modalActivateUser && <ModalActivateUser />}
       
 
     </>

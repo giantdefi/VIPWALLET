@@ -6,8 +6,7 @@ import axios from 'axios';
 //---- REDUX STORE ---------------------
 import { useDispatch, useSelector } from 'react-redux';
 import { setModalMessage } from 'redux/reducers/ModalReducer';
-//import { setTotalWallet,setEWallet, setRWallet, setBonusSponsor, setTotalSend, setTotalRecieve, setIsAdmin, setIsActive, setAllowReloadData } from 'redux/reducers/AuthReducer';
-import { setAcct_1, setAcct_2, setAcct_3 } from 'redux/reducers/AdminReducer';
+import { setIsLogin,  setFullName, setUserID, setLevel, setBoardNo, setToken, setPhone, setEmail, setIsActive, setAllowReloadData, setWallet } from 'redux/reducers/AuthReducer';
 import { setPlaySound } from 'redux/reducers/SoundReducer';
 //--------------------------------------
 
@@ -19,45 +18,46 @@ export default function TopNavigation() {
     const dispatch = useDispatch();
 
     //  const { allowSound } = useSelector((state) => state.SettingReducer)
-    const { isLogin, username, token, allowReloadData } = useSelector((state) => state.AuthReducer)
+    const { isLogin, userID, token, allowReloadData } = useSelector((state) => state.AuthReducer)
    
-    const { Acct_1, Acct_2, Acct_3 } = useSelector((state) => state.AdminReducer)
-
+  
     const handleUserClick = () => {
         dispatch(setPlaySound('click'))
-       
+           if(isLogin){
+            router.push('/users')
+           }else{
              router.push('/auth')
+           }
+            
        
-    }
-
-    const handleBackClick = () => {
-        dispatch(setPlaySound('click'))
-        setTimeout(() => {
-            router.push('/')
-        }, 100)
     }
 
     useEffect( () => {
-        if (isLogin && username ) {
+        if (isLogin ) {
            loadUserData()
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isLogin, username, allowReloadData])
+    }, [isLogin])
+
+
+    useEffect( () => {
+        if (allowReloadData ) {
+           loadUserData()
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [allowReloadData])
 
     //--------- REFRESH BALANCE AND BONUS -------
 
     const loadUserData = async () => {
 
-        const data = {
-            username: username,
-        }
-
-   
-        const URL = process.env.NEXT_PUBLIC_API_URL
+        dispatch(setAllowReloadData(false))
+        
+        const URL = process.env.NEXT_PUBLIC_API_URL_V1
+        console.log('url = '+URL)
         return axios({
-            url: `${URL}/users/userdata`,
-            method: 'post',
-            data,
+            url: `${URL}/users/userdata?userID=${userID}`,
+            method: 'get',
             'headers': {
                 'Authorization': token,
                 accept: 'application/json',
@@ -69,15 +69,16 @@ export default function TopNavigation() {
                 if (response.data.isSuccess) {
                     const userData = response.data.data
                   
-                    // dispatch(setTotalWallet(userData.total_wallet))
-                    // dispatch(setEWallet(userData.e_wallet))
-                    // dispatch(setRWallet(userData.r_wallet))
-                    // dispatch(setBonusSponsor(userData.bonus_sponsor))
-                    // dispatch(setTotalSend(userData.total_send))
-                    // dispatch(setTotalRecieve(userData.total_receive))
-                    // dispatch(setIsAdmin(userData.isAdmin))
-                    // dispatch(setIsActive(userData.isAdmin))
-                    // dispatch(setAllowReloadData(false))
+                   dispatch(setFullName(userData.fullname))
+                    dispatch(setPhone(userData.phone))
+                    dispatch(setEmail(userData.email))
+                    dispatch(setLevel(userData.level))
+                    dispatch(setBoardNo(userData.boardNo))
+                    dispatch(setIsActive(userData.isActive))
+                    dispatch(setWallet(userData.wallet))
+               
+                   
+                   
                 } else {
                     console.log(response)
                 }
@@ -136,7 +137,7 @@ export default function TopNavigation() {
                                         <img src="/assets/img/user.jpg" className="rounded-full w-12 h-12" alt="users" />
                                 }
                                 <div className="flex w-12 centered">
-                                <p className="text-xs">{username || 'visitor'}</p>
+                                <p className="text-xs">{userID || 'visitor'}</p>
                                 </div>
                             </div>
                        

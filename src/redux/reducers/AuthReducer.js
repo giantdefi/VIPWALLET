@@ -6,11 +6,13 @@ const initialState = {
   userID: false,
   level: false,
   boardNo : false,
+  wallet : false,
   token: false,
 
   phone: false,
   email: false,
-  isActive : false
+  isActive : false,
+  allowReloadData : false
 }
 
 export const AuthSlice = createSlice({
@@ -35,6 +37,9 @@ export const AuthSlice = createSlice({
     setBoardNo: (state, action) => {
       state.boardNo = action.payload
     },
+    setWallet: (state, action) => {
+      state.wallet = action.payload
+    },
     setToken: (state, action) => {
       state.token = action.payload
     },
@@ -48,6 +53,9 @@ export const AuthSlice = createSlice({
     setIsActive: (state, action) => {
       state.isActive = action.payload
     },
+    setAllowReloadData: (state, action) => {
+      state.allowReloadData = action.payload
+    },
     
     
 
@@ -56,7 +64,7 @@ export const AuthSlice = createSlice({
 
 })
 
-export const { setLogout, setIsLogin,  setFullName, setUserID, setLevel, setBoardNo, setToken, setPhone, setEmail, setIsActive
+export const { setLogout, setIsLogin,  setFullName, setUserID, setLevel, setBoardNo, setToken, setPhone, setEmail, setIsActive, setAllowReloadData, setWallet
 
 } = AuthSlice.actions
 

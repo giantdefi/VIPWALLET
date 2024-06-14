@@ -77,23 +77,8 @@ export default function Home() {
 
       <section className="min-h-screen pb-5 animated fadeIn _gradient_blue">
         <div className="w-full  mx-auto pt-2 mb-10">
-
-       
-
-
-          {/* <div className=" mt-5 pb-4"
-            style={{ backgroundImage: 'url("/assets/img/vector/map1.png")' }}
-          >
-            <Mainmenu />
-
-          </div> */}
-
-    
-
-        
          
-         
-        
+
           <MainsliderSample />
       
 
@@ -101,21 +86,7 @@ export default function Home() {
             <img src="/assets/img/logo-X.webp" alt="logo" />
           </div>
 
-        
-
-          {/* ==================== PRODUCTS =================== */}
-
-       
-
-
-        
-
-
-
-
         </div>
-
-        {/* <MainFooter /> */}
 
       </section>
 
