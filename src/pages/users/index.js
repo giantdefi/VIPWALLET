@@ -102,7 +102,7 @@ export default function Users() {
                                 </svg>
                                 : <>
                                     <i className="icofont-contact-add text-yellow-300 text-4xl "></i>
-                                    <p className="text-xs mt-1">Referral Bonus</p>
+                                    <p className="text-xs mt-1">Network</p>
                                 </>
                             }
                         </div>

@@ -100,7 +100,7 @@ export default function Home() {
         <>
 
 <div className="flex w-full  h-[300px] bg-[#132020] text-gray-100 bg-center bg-cover   z-10 relative border-2 border-slate-500 rounded-lg animated zoomIn"
-         style={{ backgroundImage: 'url("/assets/img/vector/card.png")' }}  ref={overlayRef}>
+         style={{ backgroundImage: 'url("/assets/img/vector/card.webp")' }}  ref={overlayRef}>
                      
                     <h2 className=" font-techMono absolute bottom-[150px] left-[50px] emboss">{random1} {random2} {random3} {random4}</h2>
 
