@@ -68,7 +68,7 @@ export default function Users() {
 
                 
                 </div>
-                <div className="text-center py-2 mt-2 bg-gray-700">
+                <div className="text-center py-2 mt-2 bg-gray-700 rounded-full _gradient_slate">
                     <p className="uppercase ">START UP</p>
                 </div>
 
@@ -95,7 +95,7 @@ export default function Users() {
 
 </div>
 
-                <div className="text-center py-2 mt-2 bg-gray-700">
+                <div className="text-center py-2 mt-2 bg-gray-700 rounded-full _gradient_slate">
                     <p className="uppercase ">MUTUAL USERS</p>
                 </div>
 
@@ -172,7 +172,7 @@ export default function Users() {
 
                 </div>
 
-                <div className="text-center py-2 mt-2 bg-gray-700">
+                <div className="text-center py-2 mt-2 bg-gray-700 rounded-full _gradient_slate">
                     <p className="uppercase ">READY TO THE NEXT LEVEL - $50</p>
                 </div>
 
