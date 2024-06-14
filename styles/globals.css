@@ -114,7 +114,7 @@ a{
 
   .btn_menu_user { 
     @apply flex flex-col items-center justify-center bg-gray-800   
-    border-2 border-gray-600  cursor-pointer mb-2  w-1/3 h-[90px]  flex justify-center items-center p-2  
+    border-2 border-gray-600  cursor-pointer mb-2    flex justify-center items-center p-2  
     }
 
     .btn_menu_user_single { 
@@ -414,3 +414,4 @@ a{
  
   text-shadow: 1px 1px #ccc, -3px -1px #3d3d3d;
   }
+
