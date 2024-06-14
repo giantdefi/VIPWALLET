@@ -175,11 +175,11 @@ const handleTransfer = async () => {
 
                         <div className="text-white">
                          <p>-------------------------------------</p>
-                        <p>For Username : {sendDestUsername}</p>
-                        <p>Amount : {sendAmount} USDT</p>                    
+                        <p>For Username : </p>
+                        <p>Amount :  USDT</p>                    
                         <p>This amount will be converted to :</p>
-                        <p>EWallet : {sendAmount/2} USDT</p>
-                        <p>RWallet : {sendAmount/2} USDT</p>
+                        <p>EWallet :  USDT</p>
+                        <p>RWallet :  USDT</p>
                         <p className="text-sm">Make sure that user already deposit to your USDT wallet address.</p>
                       
                             <div className="flex justify-between  mt-4">
