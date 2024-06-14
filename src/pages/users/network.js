@@ -2,12 +2,13 @@ import React, { useEffect, useState, useRef } from "react"
 import Link from 'next/link'
 import Router, { useRouter } from "next/router"
 import Head from 'next/head'
+import axios from 'axios'
 import MasterCardDashboard from "components/inputforms/auth/MasterCardDashboard"
 //---- REDUX STORE ---------------------
 import { useSelector, useDispatch } from 'react-redux'
 import { setPlaySound } from 'redux/reducers/SoundReducer'
 import {  setModalConfirmLogOut } from 'redux/reducers/ModalReducer'
-//clsimport { setToggleLogin } from 'redux/reducers/AuthReducer';
+import { setMyDownlines } from 'redux/reducers/NetworkReducer';
 //--------------------------------------
 
 export default function Users() {
@@ -19,10 +20,51 @@ export default function Users() {
     const [itemLink, setItemLink] = useState()
     const [menuSpinner, setMenuSpinner] = useState(false)
     const { isActive, name } = useSelector((state) => state.AuthReducer)
+    const { isLogin, userID, token } = useSelector((state) => state.AuthReducer)
+    const { myDownlines } = useSelector((state) => state.NetworkReducer)
+   
 
-   // const [isLogin, setLoginr] = useState(false)
-    const { isLogin, fullname, isAdmin } = useSelector((state) => state.AuthReducer)
-    // const { fullname, avatar, email, verified } = useSelector((state) => state.UsersReducer)
+
+    useEffect(() => {
+        console.log('----get my downline-----')
+        if(!myDownlines) {
+            handleGetDownlines()
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    const handleGetDownlines = async () => {
+
+
+       const URL = process.env.NEXT_PUBLIC_API_URL_V1
+        return axios({
+            url: `${URL}/users/downlines?userID=${userID}`,
+            method: 'get',
+            'headers': {
+                'Authorization': token,
+                accept: 'application/json',
+                'content-type': 'application/json',
+            }
+        })
+            .then(async response => {
+
+                if (response.data.isSuccess) {
+
+                dispatch(setMyDownlines(response.data))
+
+                } else {
+                   
+               
+                   // return dispatch(setError({ path: response.data.path, message: response.data.message }))
+                }
+
+            }).catch(function (error) {
+             
+             //   return dispatch(setModalMessage({ type: 'danger', title: "Network Error!", message:error }))
+
+            })
+    }
+
 
 
     return (
@@ -35,21 +77,11 @@ export default function Users() {
 
             <div className="min-h-screen pb-40 mx-3 ">
 
-                
-
-
-             
-
-              
-   
-
                 <div className="text-center py-2 mt-2 bg-gray-700">
                     <p className="uppercase ">NETWORK LEVEL $10</p>
                 </div>
 
                 <div className="w-full flex centered mt-2">
-
-                  
 
                     <button onClick={() => handleMovePage('users/matching-bonus')} className="btn_menu_user">
                         <div className=" flex flex-col justify-center items-center">
@@ -273,10 +305,28 @@ export default function Users() {
                 </button>
 
              
-          
-
+           
             </div>
 
+            <div className="text-center py-2 mb-10 mt-20 bg-gray-700 rounded-full _gradient_slate">
+                    <p className="uppercase ">YOUR DOWNLINE READY TO BE ACTIVATED</p>
+                </div>
+        {myDownlines && myDownlines.data.map((item, index) => {
+
+      return (
+
+            <div className=" flex flex-row justify-between border-2 border-slate-700 pb-2 px-2 rounded-lg mb-2">
+                <div className=" flex flex-col">
+                    <p className=" flex centered">{item.userID}</p>
+                    <p className=" flex centered text-xs">{item.fullname}</p>
+                </div>
+               
+                <button className="_btn_submit_green ">ACTIVATE</button>
+             </div>
+
+            )
+            })}
+            
 </div>
           
         </>

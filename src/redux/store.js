@@ -30,7 +30,7 @@ import MatchingReducer from 'redux/reducers/MatchingReducer';
 import AdminReducer from 'redux/reducers/AdminReducer';
 import UploadReducer from 'redux/reducers/UploadReducer';
 import DepositReducer from 'redux/reducers/DepositReducer'; 
- 
+import NetworkReducer from 'redux/reducers/NetworkReducer'; 
 const rootReducer = combineReducers({
   GeneralReducer,
   AdminReducer,
@@ -42,6 +42,7 @@ const rootReducer = combineReducers({
   LoaderReducer,
   MainmenuReducer,
   ModalReducer,
+  NetworkReducer,
   PackageReducer,
   ReferralReducer,
   MatchingReducer,
