@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    masterUser: 'TOPSPEED', // for not login user to see m-tree
-    domain: 'forlivingchannel.com',
-    title: 'FOR LIVING CHANNEL',
-    desc: 'Crypto staking - NFT - Networking - Markerplace',
+    masterUser: 'VIP1000000001', // for not login user to see m-tree
+    domain: 'vipwallet.com',
+    title: 'VIPWALLET',
+    desc: '',
     currency: 'BUSD'
 }
 

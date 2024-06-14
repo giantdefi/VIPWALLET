@@ -40,15 +40,15 @@ export default function MainsliderSample() {
 
 <SwiperSlide>
                              
-                                <img src="/assets/img/slider/slide-3.png" alt="banner" className=' mx-auto ' />
+                                <img src="/assets/img/slider/slider-1.webp" alt="banner" className=' mx-auto ' />
 
                             </SwiperSlide>
                             <SwiperSlide>
-                                <img src="/assets/img/slider/slide-2.png" alt="banner" className=' mx-auto ' />
+                                <img src="/assets/img/slider/slider-2.webp" alt="banner" className=' mx-auto ' />
 
                             </SwiperSlide>
                                <SwiperSlide>
-                                <img src="/assets/img/slider/slide-1.png" alt="banner" className=' mx-auto ' />
+                                <img src="/assets/img/slider/slider-3.webp" alt="banner" className=' mx-auto ' />
 
                             </SwiperSlide>
 

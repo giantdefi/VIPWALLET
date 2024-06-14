@@ -57,7 +57,7 @@ export default function Users() {
         <>
 
 <Head>
-                <title>FIVE FORTUNE</title>
+                <title>VIPWALLET</title>
                 <meta name="description" content="Users Page" />
             </Head>
 
