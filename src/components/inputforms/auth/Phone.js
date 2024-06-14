@@ -49,7 +49,7 @@ export default function Phone() {
         <>
             <div className="w-full  px-4 mt-5">
                 <div className="relative w-full mb-3">
-                    <p className="mb-1 text-sm">Phone / WhatApps with country code (+62)   </p>
+                    <p className="mb-1 text-sm">Phone / WhatApps with country code (+XX)   </p>
 
                     <input type="text" autoComplete="off" className=" bg-gray-800 w-full text-white border border-gray-500 rounded-md py-2 px-3" ref={inputRef}
                         name="userPhone"

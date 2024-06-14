@@ -16,7 +16,7 @@ import Mastercard from "components/inputforms/auth/MasterCard"
 //---- REDUX STORE ---------------------
 import { useSelector, useDispatch } from 'react-redux'
 import { setModalMessage } from 'redux/reducers/ModalReducer'
-//import { resetForm } from 'redux/reducers/FormReducer'
+import { setFormPhone } from 'redux/reducers/FormReducer'
 import { setError } from 'redux/reducers/ErrorReducer'
 import { setIsLogin, setUserID, setIsActive, setFullName, setPhone, setEmail, setToken } from 'redux/reducers/AuthReducer'
 import { resetCard,setCardNo, setJoinDate, setName, setUserid, setAllowAnimated } from 'redux/reducers/CreditCardReducer'
@@ -81,11 +81,17 @@ export default function Home() {
             setSpinner(false)
             return dispatch(setError({ path: "userPhone", message: 'Phone is missing' }))
         }
-        if (userPhone.length < 11) {
+        if (userPhone.length < 12) {
             setSpinner(false)
             return dispatch(setError({ path: "userPhone", message: 'Invalid phone format' }))
         }
-
+      
+        if (userPhone.toString().substring(0, 1) != '+') {
+            dispatch(setFormPhone('+62'+userPhone.substring(1)))
+            setSpinner(false)
+            return dispatch(setError({ path: "userPhone", message: 'Invalid phone format. Please Edit if required' }))
+        } 
+       
         if (!password) {
             setSpinner(false)
             return dispatch(setError({ path: "password", message: 'Password is missing' }))
