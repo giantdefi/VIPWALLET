@@ -478,7 +478,7 @@ const data = {
 
       return (
 
-            <div className=" flex flex-row justify-between border-2 border-slate-700 pb-2 px-2 rounded-lg mb-2">
+            <div className=" flex flex-row justify-between border-2 border-slate-700 pb-2 px-2 rounded-lg mb-2" key={index}>
                 <div className=" flex flex-col">
                     <p className=" flex centered">{item.userID}  {'=>'} ${item.wallet}</p>
                     <p className=" flex centered text-xs">{item.fullname}</p>
