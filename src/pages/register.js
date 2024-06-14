@@ -50,6 +50,8 @@ export default function Home() {
 
     const handleRegister = async () => {
 
+        setSpinner(true)
+
         dispatch(setError(false))
            
         if (!sponsor) {
@@ -148,6 +150,7 @@ export default function Home() {
                     dispatch(setIsActive(dataLogin.setIsActive))
                    
                     setSpinner(false)
+                   return dispatch(setModalMessage({ type: 'success', title: "Registration Success!", message: 'Now You are Login' }))
 
                 } else {
                     setSpinner(false)
@@ -156,7 +159,7 @@ export default function Home() {
                 }
 
             }).catch(function (error) {
-                //  setSpinnerBtn(false)
+                setSpinnerBtn(false)
                 console.log(error)
                 setSpinner(false)
                 return dispatch(setModalMessage({ type: 'danger', title: "Network Error!", message: 'Please check your Internet connection' }))

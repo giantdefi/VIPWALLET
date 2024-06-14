@@ -36,7 +36,7 @@ export default function Home() {
 
     useEffect(() => {
         dispatch(setError(false))
-     //   dispatch(resetForm())
+      //  dispatch(resetForm())
         // dispatch(setItemSelected(false)) // sidebar menu
         // dispatch(setMainSidebarOpen(false))
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -44,6 +44,8 @@ export default function Home() {
 
     // if is Login the redirect
     useEffect(() => {
+
+     
         if (isLogin) {
            router.push('/users')
         }
@@ -53,11 +55,11 @@ export default function Home() {
     const handleLogin = async () => {
 
         dispatch(setError(false))
-      
+        
 
         if (!username) {
             setSpinner(false)
-            return dispatch(setError({ path: "username", message: 'Username is missing' }))
+            return dispatch(setError({ path: "username", message: 'Data is missing' }))
         }
 
         if (!password) {
@@ -123,6 +125,7 @@ export default function Home() {
 
                     }, 1000)
                     dispatch(setModalMessage({ type: 'success', title: "Login Success!", message: 'Now You are Login' }))
+                    dispatch(resetForm())
                     return setSpinner(false)
 
                 } else {
