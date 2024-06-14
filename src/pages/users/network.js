@@ -174,6 +174,7 @@ export default function Users() {
 
                 <div className="text-center py-2 mt-2 bg-gray-700 rounded-full _gradient_slate">
                     <p className="uppercase ">READY TO THE NEXT LEVEL - $50</p>
+                    <p className=""> Reward up to 1000%</p>
                 </div>
 
 
