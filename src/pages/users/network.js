@@ -147,7 +147,7 @@ export default function Users() {
                                 </svg>
                                 : <>
                                        <i className="icofont-wallet text-4xl  text-green-400"></i>
-                                       <p className="text-xs mt-2">NEW USER JOIN</p>
+                                       <p className="text-xs mt-2">ADD NEW USER</p>
                                 </>
                             }
                         </div>
@@ -161,7 +161,7 @@ export default function Users() {
                                 </svg>
                                 : <>
                                       <i className="icofont-wallet text-4xl  text-green-400"></i>
-                                      <p className="text-xs mt-2">NEW USER JOIN</p>
+                                      <p className="text-xs mt-2">ADD NEW USER</p>
                                 </>
                             }
                         </div>
@@ -189,7 +189,7 @@ export default function Users() {
                                 </svg>
                                 : <>
                                     <i className="icofont-rocket-alt-1 text-4xl  text-green-400"></i>
-                                    <p className="text-xs mt-2">NEW JOIN</p>
+                                    <p className="text-xs mt-2">ADD NEW USER</p>
                                 </>
                             }
                         </div>
@@ -207,7 +207,7 @@ export default function Users() {
                                 </svg>
                                 : <>
                                          <i className="icofont-rocket-alt-1 text-4xl  text-green-400"></i>
-                                         <p className="text-xs mt-2">NEW JOIN</p>
+                                         <p className="text-xs mt-2">ADD NEW USER</p>
                                 </>
                             }
                         </div>
@@ -231,7 +231,7 @@ export default function Users() {
                             </svg>
                             : <>
                                 <i className="icofont-rocket-alt-1 text-4xl  text-green-400"></i>
-                                <p className="text-xs mt-2">NEW JOIN</p>
+                                <p className="text-xs mt-2">ADD NEW USER</p>
                             </>
                         }
                     </div>
@@ -249,7 +249,7 @@ export default function Users() {
                             </svg>
                             : <>
                                      <i className="icofont-rocket-alt-1 text-4xl  text-green-400"></i>
-                                     <p className="text-xs mt-2">NEW JOIN</p>
+                                     <p className="text-xs mt-2">ADD NEW USER</p>
                             </>
                         }
                     </div>
@@ -266,7 +266,7 @@ export default function Users() {
                             </svg>
                             : <>
                                      <i className="icofont-rocket-alt-1 text-4xl  text-green-400"></i>
-                                     <p className="text-xs mt-2">NEW JOIN</p>
+                                     <p className="text-xs mt-2">ADD NEW USER</p>
                             </>
                         }
                     </div>
