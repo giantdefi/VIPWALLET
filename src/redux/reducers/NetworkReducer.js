@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     
     myNetwork : false,
-    myDownlines : false  // array
+    myDownlines : false , // array
+    activateSpinner : false
 }
 
 export const NetworkSlice = createSlice({
@@ -16,11 +17,14 @@ export const NetworkSlice = createSlice({
         setMyDownlines: (state, action) => {
             state.myDownlines = action.payload
         },
+        setActivateSpinner: (state, action) => {
+            state.activateSpinner = action.payload
+        },
         resetRefLink: () => initialState
     }
 
 })
 
-export const {  setMyNetwork, setMyDownlines } = NetworkSlice.actions
+export const {  setMyNetwork, setMyDownlines, setActivateSpinner } = NetworkSlice.actions
 
 export default NetworkSlice.reducer

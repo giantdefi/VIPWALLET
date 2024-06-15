@@ -72,9 +72,9 @@ export default function ModalMessage() { // receive props from parent
     <>
       {/* style={{ zIndex: 100, background: 'rgba(0,0,0, 0.1)' }} */}
 
-      <audio ref={soundClick} src="/sound/pling.mp3"> </audio>
+    
 
-      <div className="_modal_message  animated" ref={overlayRef}>
+      <div className="_modal_message  animated " ref={overlayRef} >
         <div className="relative shadow-full  mx-auto z-50 overflow-y-auto  animated fadeInDown min-w-[350px]"
           ref={outsideRef} >
 

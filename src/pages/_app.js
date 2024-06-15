@@ -3,7 +3,6 @@ import '../../styles/input-button.css'
 import '../../styles/icofont/icofont.min.css'
 import '../../styles/animate.min.css'
 import '../../styles/modal.css'
-import '../../styles/modal-video.css'
 import '../../styles/captcha.css'
 
 import MainLayout from 'layout/main'
