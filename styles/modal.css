@@ -18,7 +18,8 @@
 
 
 ._modal_message { 
-@apply fixed w-full  inset-0   overflow-hidden flex justify-center items-center bg-opacity-5 bg-gray-500 z-[110]
+@apply fixed w-full    overflow-hidden flex justify-center items-center bg-opacity-5 bg-gray-500 z-[110]  
+/* inset-0 to make it in the middle otherwise it is on the top*/
 }
 
 

@@ -8,7 +8,8 @@ import { setModalActivateUser, setModalMessage } from 'redux/reducers/ModalReduc
 import { setPlaySound } from 'redux/reducers/SoundReducer'
 import { resetForm } from 'redux/reducers/FormReducer'
 import { setError } from 'redux/reducers/ErrorReducer'
-import { setActivateSpinner } from 'redux/reducers/NetworkReducer';
+import { setActivateSpinner, setAllowReload } from 'redux/reducers/NetworkReducer';
+import {  setAllowReloadData } from 'redux/reducers/AuthReducer';
 //--------------------------------------
 
 export default function ModalActivate() {
@@ -21,7 +22,8 @@ export default function ModalActivate() {
     const { isLogin, username, totalWallet, token } = useSelector((state) => state.AuthReducer)
     const { modalActivateUser } = useSelector((state) => state.ModalReducer)
     const { sendDestUsername, sendAmount, isAlreadyChecked, showCaptcha } = useSelector((state) => state.FormReducer)
-
+    const { userIDSponsor, userIDMember, level, boardNo } = useSelector((state) => state.NetworkReducer)
+  
    
     useEffect(() => {
         if (modalActivateUser) {
@@ -58,80 +60,23 @@ export default function ModalActivate() {
 
     }
 
-   // reload data when action done
-   const getUserBalance = async () => {
-
-    const data = {
-        username: username,
-    }
-
-    const URL = process.env.NEXT_PUBLIC_API_URL
-    return axios({
-        url: `${URL}/users/userdata`,
-        method: 'post',
-        data,
-            'headers': {
-                'Authorization': token,
-                accept: 'application/json',
-                'content-type': 'application/json',
-            }
-    })
-        .then(async response => {
-            if (response.data.isSuccess) {
-                const data = response.data.data
-                // dispatch(setTotalWallet(data.total_wallet))
-                // dispatch(setBonusSponsor(data.bonus_sponsor))
-            } else {
-                console.log(response.data)
-            }
-        }).catch(function (error) {
-
-            console.log(error)
-            return dispatch(setModalMessage({ type: 'danger', title: "Network Error!", message: 'Please check your Internet connection' }))
-        });
-}
 
 
 //========= TRANSFER ================================
-const handleTransfer = async () => {
+const handleActivate = async () => {
 
-    if (!isLogin) {
-        dispatch(setPlaySound('error'))
-        return dispatch(setModalMessage({ type: 'danger', title: "Login Required", message: 'Please Login to continue' }))
-    }
-
-    if (!totalWallet) {
-        dispatch(setPlaySound('error'))
-        return dispatch(setModalMessage({ type: 'warning', title: "No total Wallet!", message: 'You dont have any total Wallet' }))
-    }
-
-    if (!sendDestUsername) { 
-        dispatch(setPlaySound('error'))
-        setSpinner(false); 
-        return dispatch(setError({ path: "sendDestUsername", message: 'Username is missing' })) }
- 
-    if (!sendAmount) { 
-        setSpinner(false); 
-        dispatch(setPlaySound('error'))
-        return dispatch(setError({ path: "sendAmount", message: 'Amount is missing' })) }
-  
-    if (sendDestUsername === username) { 
-        dispatch(setPlaySound('error'))
-        setSpinner(false); 
-        return dispatch(setError({ path: "sendDestUsername", message: 'Send to your self?' })) }
-
-    setSpinner(true)
+       setSpinner(true)
     const data = {
-    //    action: 'TOPUP_USER',
-        username: username,
-        destination: sendDestUsername,
-        amount: sendAmount
+        userIDSponsor,
+        userIDMember,
+        level,
+        boardNo,
     }
 
-   // console.log(data)
-    const URL = process.env.NEXT_PUBLIC_API_URL
+    console.log(data)
+    const URL = process.env.NEXT_PUBLIC_API_URL_V1
     return axios({
-        url: `${URL}/users/topup-wallet`,
+        url: `${URL}/network/activate`,
         method: 'POST',
         data,
         'headers': {
@@ -143,13 +88,13 @@ const handleTransfer = async () => {
         .then(async response => {
 
             if (response.data.isSuccess) {
-                await getUserBalance() // reload data after action done
+              
                 dispatch(setPlaySound('transfer'))
                 dispatch(resetForm())
-
-                dispatch(setModalConfirmTopUp(false))
-
-                dispatch(setModalMessage({ type: 'success', title: "Transaction Success!", message: 'Transfer Wallet successful' }))
+                dispatch(setAllowReload(true)) // reload network setAllowReloadData
+                dispatch(setAllowReloadData(true))
+               dispatch(setModalMessage({ type: 'success', title: response.data.title, message: response.data.message }))
+               handleCloseModal()
             } else {
                 console.log(response.data)
                 dispatch(setModalMessage({ type: 'danger', title: "Transaction Fail!", message: response.data.message }))
@@ -176,18 +121,17 @@ const handleTransfer = async () => {
 
                         <div className="text-white">
                          <p>-------------------------------------</p>
-                        <p>For Username : </p>
-                        <p>Amount :  USDT</p>                    
-                        <p>This amount will be converted to :</p>
-                        <p>EWallet :  USDT</p>
-                        <p>RWallet :  USDT</p>
-                        <p className="text-sm">Make sure that user already deposit to your USDT wallet address.</p>
-                      
+                        <p>Sponsor : {userIDSponsor}</p>
+                        <p>Activate UserID :  {userIDMember}</p>                    
+                        <p>Level : {level }</p>
+                        <p>Board No : {boardNo}</p>
+                     
+                                       
                             <div className="flex justify-between  mt-4">
                                 <button onClick={handleCloseModal} className="_btn_submit_red flex centered">
                                     Cancel 
                                 </button>
-                                <button onClick={handleTransfer}className="_btn_submit_blue border-2 border-gray-300 w-40">
+                                <button onClick={handleActivate}className="_btn_submit_blue border-2 border-gray-300 w-40">
                             {spinner ? 
                                 <svg role="status" className="mr-4 inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />

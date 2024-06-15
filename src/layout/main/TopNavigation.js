@@ -43,6 +43,7 @@ export default function TopNavigation() {
     useEffect( () => {
         if (allowReloadData ) {
            loadUserData()
+           setAllowReloadData(false) // reset
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allowReloadData])
@@ -52,7 +53,7 @@ export default function TopNavigation() {
     const loadUserData = async () => {
 
         dispatch(setAllowReloadData(false))
-        
+
         const URL = process.env.NEXT_PUBLIC_API_URL_V1
         console.log('url = '+URL)
         return axios({

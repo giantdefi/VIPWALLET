@@ -4,7 +4,15 @@ const initialState = {
     
     myNetwork : false,
     myDownlines : false , // array
-    activateSpinner : false
+    activateSpinner : false,
+
+    // activation
+    userIDSponsor : false,
+    userIDMember : false,
+    level : false,
+    boardNo : false,
+
+    allowReload : false
 }
 
 export const NetworkSlice = createSlice({
@@ -20,11 +28,32 @@ export const NetworkSlice = createSlice({
         setActivateSpinner: (state, action) => {
             state.activateSpinner = action.payload
         },
-        resetRefLink: () => initialState
+        setActivateSpinner: (state, action) => {
+            state.activateSpinner = action.payload
+        },
+        //activation
+        setUserIDSponsor: (state, action) => {
+            state.userIDSponsor = action.payload
+        },
+        setUserID: (state, action) => {
+            state.userIDMember = action.payload
+        },
+        setLevel: (state, action) => {
+            state.level = action.payload
+        },
+        setBoardNo: (state, action) => {
+            state.boardNo = action.payload
+        },
+        setAllowReload: (state, action) => {
+            state.allowReload = action.payload
+        },
+        resetNetwork: () => initialState
     }
 
 })
 
-export const {  setMyNetwork, setMyDownlines, setActivateSpinner } = NetworkSlice.actions
+export const {  setMyNetwork, setMyDownlines, setActivateSpinner,setAllowReload,
+    setUserIDSponsor,setUserID, setLevel, setBoardNo 
+ } = NetworkSlice.actions
 
 export default NetworkSlice.reducer
