@@ -69,7 +69,7 @@ const handleReset = () => {
             if (response.data.isSuccess) {
               
                                           
-                dispatch(setModalMessage({ type: 'success', title: "Login Success!", message: response.data.message }))
+                dispatch(setModalMessage({ type: 'success', title: "Reset Success!", message: response.data.message }))
              
               dispatch(setAllowReload(true))
 
