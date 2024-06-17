@@ -2,12 +2,14 @@ import React, { useEffect, useState, useRef } from "react"
 import Link from 'next/link'
 import Router, { useRouter } from "next/router"
 import Head from 'next/head'
+import axios from 'axios'
 import MasterCardDashboard from "components/inputforms/auth/MasterCardDashboard"
 //---- REDUX STORE ---------------------
 import { useSelector, useDispatch } from 'react-redux'
 import { setPlaySound } from 'redux/reducers/SoundReducer'
 import {  setModalConfirmLogOut } from 'redux/reducers/ModalReducer'
-//clsimport { setToggleLogin } from 'redux/reducers/AuthReducer';
+import { setModalMessage } from 'redux/reducers/ModalReducer'
+import { setAllowReload } from 'redux/reducers/NetworkReducer';
 //--------------------------------------
 
 export default function Users() {
@@ -50,7 +52,40 @@ export default function Users() {
         }, 500)
     }
 
+const handleReset = () => {
 
+   
+    const URL = process.env.NEXT_PUBLIC_API_URL_V1
+    return axios({
+        url: `${URL}/reset/reset`,
+        method: 'POST',
+        'headers': {
+            accept: 'application/json',
+            'content-type': 'application/json',
+        }
+    })
+        .then(async response => {
+
+            if (response.data.isSuccess) {
+              
+                                          
+                dispatch(setModalMessage({ type: 'success', title: "Login Success!", message: response.data.message }))
+             
+              dispatch(setAllowReload(true))
+
+            } else {
+              
+                return dispatch(setModalMessage({ type: 'danger', title: "Network Error!", message:error }))
+            }
+
+        }).catch(function (error) {
+            console.log(error)
+          
+            return dispatch(setModalMessage({ type: 'danger', title: "Network Error!", message:error }))
+
+        })
+
+}
 
     return (
         <>
@@ -77,13 +112,13 @@ export default function Users() {
                             {isActive?
                             <span className="text-green-300 ml-2">ACTIVE <i className="icofont-check"></i>
                             </span> :
-                             <span className="text-yellow-400"> NOT ACTIVE</span> }
+                             <span className="text-yellow-400"> NOT ACTIVE <i className="icofont-close-circled"></i></span> }
                     </p>
                 </div>
 
              
 
-                <MasterCardDashboard/>
+                {/* <MasterCardDashboard/> */}
    
 
                 <div className="text-center py-2 mt-2 bg-gray-700">
@@ -116,7 +151,7 @@ export default function Users() {
                                 </svg>
                                 : <>
                                     <i className="icofont-hand-drag2 text-yellow-300 text-4xl "></i>
-                                    <p className="text-[11px] mt-1">Matching Bonus</p>
+                                    <p className="text-[11px] mt-1">xxxxx</p>
                                 </>
                             }
                         </div>
@@ -131,7 +166,7 @@ export default function Users() {
                                 </svg>
                                 : <>
                                     <i className="icofont-bank-transfer-alt text-4xl text-yellow-400 "></i>
-                                    <p className="text-xs mt-1"> Withdrawal</p>
+                                    <p className="text-xs mt-1"> xxxxx</p>
                                 </>
                             }
                         </div>
@@ -154,7 +189,7 @@ export default function Users() {
                                 </svg>
                                 : <>
                                     <i className="icofont-flora-flower text-4xl  text-yellow-400"></i>
-                                    <p className="text-xs mt-2">Top Up Wallet</p>
+                                    <p className="text-xs mt-2">xxxxx</p>
                                 </>
                             }
                         </div>
@@ -172,7 +207,7 @@ export default function Users() {
                                 </svg>
                                 : <>
                                     <i className="icofont-paper-plane text-sky-400 text-4xl"></i>
-                                    <p className="text-xs mt-2">Send Wallet</p>
+                                    <p className="text-xs mt-2">xxxxx</p>
                                 </>
                             }
                         </div>
@@ -180,7 +215,7 @@ export default function Users() {
 
                 
                    
-                     <button onClick={() => handleMovePage('settings/update-profile')}  className='btn_menu_user w-1/3 h-[90px]'>
+                     <button onClick={handleReset}  className='btn_menu_user w-1/3 h-[90px]'>
                    
                      <div className=" flex flex-col justify-center items-center">
                          {menuSpinner && itemLink == "settings/update-profile" ?
@@ -190,7 +225,7 @@ export default function Users() {
                              </svg>
                              : <>
                                  <i className="icofont-contact-add text-4xl  text-yellow-200"></i>
-                                 <p className="text-xs mt-2">Settings</p>
+                                 <p className="text-xs mt-2">Reset</p>
                              </>
                          }
                      </div>

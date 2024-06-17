@@ -277,6 +277,10 @@ a{
     background: linear-gradient(30deg, #4d0000 0%, #000 100%) !important
   }
 
+  ._gradient_green {
+    background: linear-gradient(30deg, #397418 0%, #031d0f 100%) !important
+  }
+
   ._gradient_new_binary { 
     @apply  bg-gradient-to-tr from-slate-800 to-slate-600  cursor-pointer flex flex-col px-4 border-2 border-gray-700 rounded-xl text-gray-100
     }
@@ -414,4 +418,6 @@ a{
  
   text-shadow: 1px 1px #ccc, -3px -1px #3d3d3d;
   }
-
+  .main_bg {
+  background: radial-gradient(60.25% 73.6% at 14.86% 21.69%, #136165 0.82%, #0B3B48 30.73%, #072A36 64.58%, rgba(3, 21, 33, 1) 100%)
+  }

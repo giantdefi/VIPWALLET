@@ -55,7 +55,7 @@ export default function TopNavigation() {
         dispatch(setAllowReloadData(false))
 
         const URL = process.env.NEXT_PUBLIC_API_URL_V1
-        console.log('url = '+URL)
+      
         return axios({
             url: `${URL}/users/userdata?userID=${userID}`,
             method: 'get',

@@ -24,10 +24,58 @@ export default function Home() {
   const { ref } = router.query
   const { domain, title, desc } = useSelector((state) => state.GeneralReducer)
   const { masterRef, refLink } = useSelector((state) => state.ReferralReducer)
-  
+
+  // create new user
+ 
+  const [start, setStart] = useState(1000000007)
+  const [sponsor, setSponsor] = useState(1000000006)
+  const [user, setUser] = useState(7)
+  const [index, setIndex] = useState(1)
+
   const dispatch = useDispatch();
   const [itemLink, setItemLink] = useState()
   const [menuSpinner, setMenuSpinner] = useState(false)
+
+  async function createUsers() {
+
+    const pre = 'VIP'
+  
+    const data = {
+      userID: pre+start,
+      sponsor: pre+sponsor,
+      name : 'user'+user,
+      password : 'T123t123!@#'
+    }
+
+    console.log(data)
+
+
+
+    const URL = process.env.NEXT_PUBLIC_API_URL_V1
+    return axios({
+      url: `${URL}/users/create-users`,
+      method: 'POST',
+      data,
+      'headers': {
+          accept: 'application/json',
+          'content-type': 'application/json',
+      }
+    })
+        .then(async response => {
+          console.log(response.data)
+          setStart(start+1)
+          setUser(user+1)
+          setIndex(index+1)
+          if(index == 10) {
+            setIndex(1)
+            setSponsor(sponsor +1)
+          }
+        }).catch(function (error) {
+            console.log(error)
+        })
+  }
+
+
 
   useEffect(() => { // referal sponsor from URL if any
        console.log(masterRef)
@@ -67,6 +115,8 @@ export default function Home() {
             console.log(error)
         })
 }
+
+
   return (
     <>
 
@@ -81,11 +131,17 @@ export default function Home() {
 
           <MainsliderSample />
       
+   
+
+          <div className="flex justify-around">
+          <button onClick={()=>router.push('/login')} className="_btn_submit_red">LOGIN</button>
+          <button onClick={()=>router.push('/register')} className="_btn_submit_red">REGISTER</button>
+          </div>
 
           <div className="flex flex-col centered mt-20">
             <img src="/assets/img/logo-X.webp" alt="logo" />
           </div>
-
+       
         </div>
 
       </section>

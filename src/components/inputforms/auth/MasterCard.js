@@ -60,36 +60,7 @@ export default function Home() {
       }, [allowAnimated])
 
 
-      useEffect(() => { // referal sponsor from URL if any
-        //  if(!usersCount) {
-            CheckCountUser()
-       //   }
-      
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    // console.log(ref)
-
-    async function CheckCountUser() {
-
-        const URL = process.env.NEXT_PUBLIC_API_URL_V1
-        return axios({
-            url: `${URL}/users/users-count`,
-            method: 'GET'
-        })
-            .then(async response => {
-                if (response.data.isSuccess) {
-                    dispatch(setUsersCount(response.count))
-                   // console.log(idLength)
-                 //   console.log(response.data.count)
-                    dispatch(setVIPID('VIP'+(parseInt(idLength)+parseInt(response.data.count))))
-                } else {
-                    // let it empty...
-                }
-            }).catch(function (error) {
-                console.log(error)
-            })
-    }
+    
 
     const handleChange = () => {
 

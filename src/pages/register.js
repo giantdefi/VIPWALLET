@@ -185,19 +185,19 @@ export default function Home() {
                 <meta name="description" content={desc} />
             </Head>
 
-            <div className="flex mb-20">
+            <div className="flex mb-20 ">
 
-                <div className="w-full mt-4 py-6 px-1 mx-auto border border-gray-700 bg-gray-800 rounded-xl   animated fadeIn">
+                <div className="w-full  mt-4 py-6 px-1 mx-auto   animated fadeIn">
 
                     <h1 className="text-2xl bold  text-center pb-2 uppercase text-gray-100">Registration</h1>
 
-               <Mastercard/>
+               {/* <Mastercard/> */}
 
 
-                    <p className="text-center mb-2 text-sm mt-10">Make sure you have a sponsor</p>
+                    <p className="text-center mb-2 text-sm mt-1">Make sure you have a sponsor</p>
                     <hr className="border-gray-700" />
 
-                    <div className="flex mb-2 border border-gray-700 bg-gray-700">
+                    <div className="flex mb-2  bg-gray-700">
                         <Sponsor />
                     </div>
                  
@@ -231,7 +231,7 @@ export default function Home() {
 
                     <div className="text-center mt-10 ">
                         <p>Already have an account?</p>
-                        <button onClick={handleToggle} className="border border-gray-500 bg-gray-600 hover:bg-gray-700 py-1 px-4 rounded-lg w-1/2 mx-auto mt-4">
+                        <button  onClick={() => router.push('/login')} className="border border-gray-500 bg-gray-600 hover:bg-gray-700 py-1 px-4 rounded-lg w-1/2 mx-auto mt-4">
                             Login here</button>
                     </div>
 

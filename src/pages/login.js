@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setModalMessage } from 'redux/reducers/ModalReducer'
 import { resetForm } from 'redux/reducers/FormReducer'
 import { setError } from 'redux/reducers/ErrorReducer'
-import { setIsLogin, setUserID, setFullName, setPhone, setEmail, setToken, setIsActive } from 'redux/reducers/AuthReducer'
+import { setIsLogin, setUserID, setFullName, setPhone, setEmail, setToken, setIsActive, setLevel, setBoardNo , setWallet } from 'redux/reducers/AuthReducer'
 import { setToggleLogin } from 'redux/reducers/MainmenuReducer'
 //--------------------------------------
 
@@ -104,14 +104,10 @@ export default function Home() {
             .then(async response => {
 
                 if (response.data.isSuccess) {
-
                   
-
-                    setTimeout(() => {
-
-                                         
                     const token = response.data.token
                     const dataLogin = response.data.dataLogin
+                    console.log(dataLogin)
                    
                     dispatch(setIsLogin(true))
                     dispatch(setToken(token))
@@ -120,10 +116,11 @@ export default function Home() {
                     dispatch(setPhone(dataLogin.phone))
                     dispatch(setEmail(dataLogin.email))
                     dispatch(setIsActive(dataLogin.isActive))
-                    dispatch(setFullName(dataLogin.name))
+                    dispatch(setFullName(dataLogin.name)) 
+                    dispatch(setBoardNo(dataLogin.boardNo)) 
+                    dispatch(setLevel(dataLogin.level)) 
+                    dispatch(setWallet(dataLogin.wallet)) 
                                   
-
-                    }, 1000)
                     dispatch(setModalMessage({ type: 'success', title: "Login Success!", message: 'Now You are Login' }))
                     dispatch(resetForm())
                     return setSpinner(false)
@@ -150,11 +147,11 @@ export default function Home() {
                 <meta name="description" content={desc} />
             </Head>
 
-            <div className="w-full">
+            <div className="w-full ">
 
-                <div className="w-full mt-6 py-6 px-4 mx-auto border border-gray-700 rounded-xl  bg-gray-800  animated fadeIn">
+                <div className="w-full  mt-6 py-6 px-4 mx-auto  rounded-xl   animated fadeIn">
 
-                    <h2 className="text-xl text-gray-100 mb-2 text-center pb-2 uppercase">  Login Users</h2>
+                    <h2 className="text-xl text-gray-100 mb-2 text-center pb-2 uppercase">  Login </h2>
                     <hr className="border-gray-700" />
                     <div className="flex flex-col mt-6">
                         <Username />
@@ -167,7 +164,7 @@ export default function Home() {
 
                     <div className="flex justify-center mt-10">
                         {spinner ?
-                            <button className="_gradient_green text-white rounded-full py-2 px-8 border-2 border-gray-400  text-xl">
+                            <button className="_gradient_green text-white rounded-full py-2 px-8   text-xl">
 
                                 <svg role="status" className="mr-4 inline w-8 h-8 text-gray-200 animate-spin  fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
@@ -185,16 +182,16 @@ export default function Home() {
             </div>
 
 
-            <div className="w-full mt-2 py-2 px-4 mx-auto border border-gray-700 _gradient_mtree  animated fadeIn">
+            <div className="w-full mt-2 py-2 px-4 mx-auto   animated fadeIn">
 
                 <div className="text-center">
                     <p className="text-gray-300">Do not have account?</p>
-                    <button onClick={handleToggle}
+                    <button  onClick={() => router.push('/register')}
                         className="border border-gray-500 bg-gray-600 hover:bg-gray-700 py-1 px-4 rounded-lg  mx-auto mt-4">
                         Register Here</button>
                 </div>
                 <div className="text-center mb-4 mt-4">
-                    <button onClick={() => router.push('/forgot-password')}>Forgot Password?</button>
+                    <button >Forgot Password?</button>
                 </div>
             </div>
 

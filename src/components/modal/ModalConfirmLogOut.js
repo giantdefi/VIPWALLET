@@ -17,6 +17,7 @@ import { resetWithdrawal } from 'redux/reducers/WithdrawalReducer'
 import { setAttemps, setBtnCheckDisabled } from 'redux/reducers/SettingReducer'
 import { setError } from 'redux/reducers/ErrorReducer'
 import { setToggleLogin } from 'redux/reducers/AuthReducer';
+import { resetNetwork } from 'redux/reducers/NetworkReducer';
 //--------------------------------------
 
 export default function ModalConfirmLogOut() {
@@ -41,6 +42,7 @@ export default function ModalConfirmLogOut() {
         dispatch(resetWithdrawal())
         dispatch(setAttemps(0))
         dispatch(setBtnCheckDisabled(false))
+        dispatch(resetNetwork())
        
         dispatch(setError(false))
         dispatch(setLogout())

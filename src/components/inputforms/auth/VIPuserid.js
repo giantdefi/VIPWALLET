@@ -32,7 +32,7 @@ export default function Destination() {
     const { formError } = useSelector((state) => state.ErrorReducer)
     const { isLogin, username, balance, token } = useSelector((state) => state.AuthReducer)
     const { attemps, btnCheckDisabled } = useSelector((state) => state.SettingReducer)
-    const { VIPID } = useSelector((state) => state.CreditCardReducer)
+    const { VIPID, idLength } = useSelector((state) => state.CreditCardReducer)
 
 
     // handle on input value change
@@ -56,6 +56,37 @@ export default function Destination() {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [formError])
+
+    useEffect(() => { // referal sponsor from URL if any
+        //  if(!usersCount) {
+            CheckCountUser()
+       //   }
+      
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    // console.log(ref)
+
+    async function CheckCountUser() {
+
+        const URL = process.env.NEXT_PUBLIC_API_URL_V1
+        return axios({
+            url: `${URL}/users/users-count`,
+            method: 'GET'
+        })
+            .then(async response => {
+                if (response.data.isSuccess) {
+                    dispatch(setUsersCount(response.count))
+                   // console.log(idLength)
+                 //   console.log(response.data.count)
+                    dispatch(setVIPID('VIP'+(parseInt(idLength)+parseInt(response.data.count))))
+                } else {
+                    // let it empty...
+                }
+            }).catch(function (error) {
+                console.log(error)
+            })
+    }
 
     const handleCheck = async () => {
 
@@ -114,7 +145,7 @@ export default function Destination() {
 
     return (
         <>
-            <div className="w-full px-4 mt-5">
+            <div className="w-full  px-4 mt-5">
              
                 {btnCheckDisabled && <p className="text-sm">Wait for next : {currentSeconds} of {timer} sec </p>}
                 <div className="w-full px-4 mt-5">
@@ -124,7 +155,7 @@ export default function Destination() {
                     <p className="mb-2 text-xs"> Edit the last 6 digits : </p>
                     <div className="flex w-full justify-between gap-20">
 
-                        <div className="flex w-10/12">
+                        <div className="flex w-9/12">
 
                             <input type="text" className=" bg-gray-800 w-full text-white border border-gray-500 rounded-md py-2 px-3" ref={inputRef}
                                 name="VIPID"
@@ -133,7 +164,7 @@ export default function Destination() {
 
                             />
                         </div>
-                        <div className="flex w-2/12">
+                        <div className="flex w-3/12">
 
                             {spinnerCheck ?
                                 <button className="w-full border border-gray-500 px-4 py-2 rounded-md bg-green-800 hover:bg-green-900">

@@ -39,7 +39,7 @@ export default function Sponsor() {
                 <div className="relative w-full mb-3">
 
                     <p className="text-sm mb-1 text-yellow-100"> Sponsor VIP-ID   </p>
-                    <input type="text" autoComplete="off"  className=" bg-gray-800 w-full text-white border border-gray-500 rounded-md py-2 px-3" ref={inputRef}
+                    <input type="text" autoComplete="off"  className=" bg-red-800 w-full text-white border border-gray-500 rounded-md py-2 px-3" ref={inputRef}
                         name="sponsor"
                         value={sponsor || ''}
                      //   onChange={handleChange}

@@ -39,7 +39,7 @@ export default function Username() {
         <>
 
             <p className="mb-2  text-white"> Email or VIP ID </p>
-            <input type="text" autoComplete="off" className="w-100 mt-2 py-3 px-3 rounded-lg bg-gray-800  border border-gray-400 
+            <input type="text" autoComplete="off" className="w-100 mt-2 py-3 px-3 rounded-full shadow-2xl bg-gray-800  border border-gray-400 
                      text-gray-50  focus:border-blue-500 focus:outline-none"  ref={inputRef}
                 name="username"
                 value={username || ''}

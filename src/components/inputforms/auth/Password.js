@@ -62,8 +62,8 @@ export default function Password() {
             </div>
 
             <input type={!showPassword ? "password" : "text"} autoComplete="off"
-                className="w-100 mt-2 py-3 px-3 rounded-lg bg-gray-800 border border-gray-400 
-                   text-gray-50  font-semibold focus:border-green-500 focus:outline-none" ref={inputRef}
+                className="w-100 mt-2 py-3 px-3 rounded-full bg-gray-800 border border-gray-400 
+                   text-gray-50  focus:border-green-500 focus:outline-none" ref={inputRef}
                 name="password"
                 value={password || ''}
                 onChange={handleChange}

@@ -11,6 +11,8 @@ const initialState = {
     userIDMember : false,
     level : false,
     boardNo : false,
+    wallet : false,
+    isBoardFull : false,
 
     allowReload : false
 }
@@ -44,6 +46,12 @@ export const NetworkSlice = createSlice({
         setBoardNo: (state, action) => {
             state.boardNo = action.payload
         },
+        setWallet: (state, action) => {
+        state.wallet = action.payload
+        },
+        setIsBoardFull: (state, action) => {
+            state.isBoardFull = action.payload
+            },
         setAllowReload: (state, action) => {
             state.allowReload = action.payload
         },
@@ -52,8 +60,8 @@ export const NetworkSlice = createSlice({
 
 })
 
-export const {  setMyNetwork, setMyDownlines, setActivateSpinner,setAllowReload,
-    setUserIDSponsor,setUserID, setLevel, setBoardNo 
+export const {  resetNetwork, setMyNetwork, setMyDownlines, setActivateSpinner,setAllowReload, setIsBoardFull,
+    setUserIDSponsor,setUserID, setLevel, setBoardNo , setWallet
  } = NetworkSlice.actions
 
 export default NetworkSlice.reducer
