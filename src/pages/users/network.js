@@ -163,8 +163,8 @@ export default function Users() {
                     <button  className=" w-1/2 h-[60px]">
                       <div className=" flex flex-col centered  rounded-full _gradient_yellow pl-2 pr-2">
                            <>
-                              <div className="w-full flex justify-between items-center py-1 pr-10">
-                                 <div className="border rounded-full h-6 w-6"> <img src="/assets/img/user.jpg" className="rounded-full w-6 h-6" alt="users" /> </div> 
+                              <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
+                                 <div className=" rounded-full h-8 w-10 flex"> <img src="/assets/img/user.png" className="rounded-full h-8 w-10" alt="users" /> </div> 
                                 <div className="text-xs ml-2">{myNetwork.slot_2}</div>
                               </div>
                             
@@ -214,7 +214,7 @@ export default function Users() {
                            <>
                                    
                            <div className="w-full flex justify-between items-center py-1 pr-10">
-                                 <div className="border rounded-full h-6 w-6"> <img src="/assets/img/user.jpg" className="rounded-full w-6 h-6" alt="users" /> </div> 
+                                <div className=" rounded-full h-8 w-10 flex"> <img src="/assets/img/user.png" className="rounded-full h-8 w-10" alt="users" /> </div> 
                                 <div className="text-xs ml-2">{myNetwork.slot_3}</div>
                               </div>
                                        
@@ -249,7 +249,7 @@ export default function Users() {
                            <>
                                    
                            <div className="w-full flex justify-between items-center py-1 pr-10">
-                                 <div className="border rounded-full h-6 w-6"> <img src="/assets/img/user.jpg" className="rounded-full w-6 h-6" alt="users" /> </div> 
+                                <div className=" rounded-full h-8 w-10 flex"> <img src="/assets/img/user.png" className="rounded-full h-8 w-10" alt="users" /> </div> 
                                 <div className="text-xs ml-2">{myNetwork.slot_4}</div>
                               </div>
                                        
@@ -285,7 +285,7 @@ export default function Users() {
                            <>
                                    
                            <div className="w-full flex justify-between items-center py-1 pr-10">
-                                 <div className="border rounded-full h-6 w-6"> <img src="/assets/img/user.jpg" className="rounded-full w-6 h-6" alt="users" /> </div> 
+                                <div className=" rounded-full h-8 w-10 flex"> <img src="/assets/img/user.png" className="rounded-full h-8 w-10" alt="users" /> </div> 
                                 <div className="text-xs ml-2">{myNetwork.slot_5}</div>
                               </div>
                                        
@@ -319,7 +319,7 @@ export default function Users() {
                            <>
                                    
                            <div className="w-full flex justify-between items-center py-1 pr-10">
-                                 <div className="border rounded-full h-6 w-6"> <img src="/assets/img/user.jpg" className="rounded-full w-6 h-6" alt="users" /> </div> 
+                                <div className=" rounded-full h-8 w-10 flex"> <img src="/assets/img/user.png" className="rounded-full h-8 w-10" alt="users" /> </div> 
                                 <div className="text-xs ml-2">{myNetwork.slot_6}</div>
                               </div>
                                        
@@ -369,7 +369,7 @@ export default function Users() {
                               <>
                                       
                               <div className="w-full flex justify-between items-center py-1 pr-10">
-                                 <div className="border rounded-full h-6 w-6"> <img src="/assets/img/user.jpg" className="rounded-full w-6 h-6" alt="users" /> </div> 
+                                <div className=" rounded-full h-8 w-10 flex"> <img src="/assets/img/user.png" className="rounded-full h-8 w-10" alt="users" /> </div> 
                                 <div className="text-xs ml-2">{myNetwork.slot_7}</div>
                               </div>
                                           
@@ -404,7 +404,7 @@ export default function Users() {
                               <>
                                       
                               <div className="w-full flex justify-between items-center py-1 pr-10">
-                                 <div className="border rounded-full h-6 w-6"> <img src="/assets/img/user.jpg" className="rounded-full w-6 h-6" alt="users" /> </div> 
+                                <div className=" rounded-full h-8 w-10 flex"> <img src="/assets/img/user.png" className="rounded-full h-8 w-10" alt="users" /> </div> 
                                 <div className="text-xs ml-2">{myNetwork.slot_8}</div>
                               </div>
                                           
@@ -440,7 +440,7 @@ export default function Users() {
                               <>
                                       
                               <div className="w-full flex justify-between items-center py-1 pr-10">
-                                 <div className="border rounded-full h-6 w-6"> <img src="/assets/img/user.jpg" className="rounded-full w-6 h-6" alt="users" /> </div> 
+                                <div className=" rounded-full h-8 w-10 flex"> <img src="/assets/img/user.png" className="rounded-full h-8 w-10" alt="users" /> </div> 
                                 <div className="text-xs ml-2">{myNetwork.slot_9}</div>
                               </div>
                                           
