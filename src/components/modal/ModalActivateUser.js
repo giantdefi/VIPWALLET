@@ -113,16 +113,18 @@ const handleActivate = async () => {
 
     return (
         <>
+       
             <div className="fixed w-full inset-0  overflow-hidden flex justify-center items-center animated" style={{ zIndex: 100 }} ref={overlayRef}>
                 <div className="_gradient_slate relative border-2 shadow-2xl   mx-auto rounded-xl z-50 overflow-y-auto w-96 animated zoomInUp" ref={outsideRef}>
                     <i className="icofont-close-circled absolute top-1 right-2 text-3xl text-orange-400 cursor-pointer"
                         onClick={handleCloseModal} />
 
-                    <div className="modal-content  py-4 px-4">
+                    <div className="modal-content  py-4 px-4 text-white">
+                    {myNetwork && !myNetwork.isFull?
+<>
+                        <h5 > ACTIVATION CONFIRMATION</h5>
 
-                        <h5 className="text-gray-100"> ACTIVATION CONFIRMATION</h5>
-
-                        <div className="text-white">
+                        <div >
                          <p>-------------------------------------</p>
                         <p>Sponsor : {userIDSponsor}</p>
                         <p>Activate UserID :  {userIDMember}</p>                    
@@ -148,10 +150,27 @@ const handleActivate = async () => {
                           
                             </div>
                             </div>
+                            </>
+                            :
+                            <>
+                             <h5 className="text-white"> ACTIVATION CONFIRMATION</h5>
+                          
+                             <p className="text-yellow-400 ">Opps... Your Network Space is Full</p>
+                             <p className="text-sm">To accommodate your remaining referrals once your network is full, please log out and create a new account and come back here to change these remaining referral sponsors to your new user ID </p>
+                           
+                             <div className="flex justify-end">
+                             <button onClick={handleCloseModal} className="_btn_submit_red flex justify-end">
+                             OK 
+                         </button>
+                         </div>
+                             </>
+                             }
                     </div>
                 </div>
             </div>
-
+          :
+         
+                  
 
         </>
     );

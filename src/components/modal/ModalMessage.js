@@ -32,8 +32,14 @@ export default function ModalMessage() { // receive props from parent
 
   const handleModalClose = () => {
     document.body.classList.remove('overflow-hidden'); // prevent body scroll on modal open
-    outsideRef.current.classList.add('zoomOut');
+   
+    if( overlayRef.current.classList) {
+      outsideRef.current.classList.add('zoomOut');
     overlayRef.current.classList.add('fadeOut');
+
+    }
+   
+  
     setTimeout(() => { // delay close to enable animation working first
       dispatch(setModalMessage(false))
     }, 500)
@@ -59,6 +65,8 @@ export default function ModalMessage() { // receive props from parent
           document.removeEventListener("click", checkIfClickedOutside)
         }
       }, 100)
+
+      
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

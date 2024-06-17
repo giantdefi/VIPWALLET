@@ -66,7 +66,7 @@ export default function Home() {
           setStart(start+1)
           setUser(user+1)
           setIndex(index+1)
-          if(index == 10) {
+          if(index == 11) {
             setIndex(1)
             setSponsor(sponsor +1)
           }
@@ -136,6 +136,7 @@ export default function Home() {
           <div className="flex justify-around">
           <button onClick={()=>router.push('/login')} className="_btn_submit_red">LOGIN</button>
           <button onClick={()=>router.push('/register')} className="_btn_submit_red">REGISTER</button>
+          {/* <button onClick={createUsers} className="_btn_submit_red">CREATE USERS</button> */}
           </div>
 
           <div className="flex flex-col centered mt-20">
