@@ -121,7 +121,7 @@ export default function Users() {
             <div className="min-h-screen pb-40 mx-3 ">
        
        {isActive && myNetwork ? 
-            <div className="flex">
+            <div >
          
             <div className="flex justify-end ">
                 <div className="flex centered"> <img src="/assets/img/dollar.webp" width='30' alt="logo" /> <span className="text-sm ml-1">Wallet : {wallet}</span></div>
