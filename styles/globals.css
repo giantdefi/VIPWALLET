@@ -276,6 +276,9 @@ a{
   ._gradient_gold {
     background: linear-gradient(30deg, #4d0000 0%, #000 100%) !important
   }
+  ._gradient_yellow {
+    background: linear-gradient(30deg, #707c03 0%, #4e4d05 100%) !important
+  }
 
   ._gradient_green {
     background: linear-gradient(30deg, #397418 0%, #031d0f 100%) !important
