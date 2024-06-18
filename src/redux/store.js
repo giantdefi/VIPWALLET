@@ -24,19 +24,19 @@ import PackageReducer from 'redux/reducers/PackageReducer';
 import StatementReducer from 'redux/reducers/StatementReducer';
 import WithdrawalReducer from 'redux/reducers/WithdrawalReducer';
 import AffiliateReducer from 'redux/reducers/AffiliateReducer';
-import VideoPlayReducer from 'redux/reducers/VideoPlayReducer';
 import ReferralReducer from 'redux/reducers/ReferralReducer';
 import MatchingReducer from 'redux/reducers/MatchingReducer';
 import AdminReducer from 'redux/reducers/AdminReducer';
-import UploadReducer from 'redux/reducers/UploadReducer';
 import DepositReducer from 'redux/reducers/DepositReducer'; 
 import NetworkReducer from 'redux/reducers/NetworkReducer'; 
+import ConfetyReducer from 'redux/reducers/ConfetyReducer'; 
 const rootReducer = combineReducers({
   GeneralReducer,
   AdminReducer,
   AffiliateReducer,
   AuthReducer,
   CreditCardReducer,
+  ConfetyReducer,
   ErrorReducer,
   FormReducer,
   LoaderReducer,
@@ -50,8 +50,6 @@ const rootReducer = combineReducers({
   SettingReducer,
   StatementReducer,
   WithdrawalReducer,
-  VideoPlayReducer,
-  UploadReducer,
   DepositReducer
 });
 

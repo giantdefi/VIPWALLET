@@ -5,7 +5,8 @@ const initialState = {
   modalActivateUser: false,
   modalConfirmLogOut: false, 
   modalConfirmTopUp : false,
-  modalWarningBuyPackage : false
+  modalWarningBuyPackage : false,
+  modalSuccessRankings : false
 };
 
 export const modalSlice = createSlice({
@@ -27,12 +28,15 @@ export const modalSlice = createSlice({
     setModalWarningBuyPackage: (state, action) => {
       state.modalWarningBuyPackage = action.payload
     },
+    setModalSuccessRanking: (state, action) => {
+      state.modalSuccessRankings = action.payload
+    },
     resetModal: () => initialState
   }
 
 });
 
-export const { resetModal, setModalMessage, setModalActivateUser, setModalConfirmLogOut, setModalConfirmTopUp, setModalWarningBuyPackage
+export const { resetModal, setModalMessage, setModalActivateUser, setModalConfirmLogOut, setModalConfirmTopUp, setModalWarningBuyPackage, setModalSuccessRanking
 } = modalSlice.actions;
 
 export default modalSlice.reducer;

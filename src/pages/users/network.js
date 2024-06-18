@@ -4,17 +4,23 @@ import Router, { useRouter } from "next/router"
 import Head from 'next/head'
 import axios from 'axios'
 
+//import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
+
 //---- REDUX STORE ---------------------
 import { useSelector, useDispatch } from 'react-redux'
 import { setPlaySound } from 'redux/reducers/SoundReducer'
-import {  setModalActivateUser, setModalMessage } from 'redux/reducers/ModalReducer'
+import {  setModalActivateUser, setModalMessage, setModalSuccessRanking } from 'redux/reducers/ModalReducer'
+import { setConfety } from 'redux/reducers/ConfetyReducer'
 import { setMyNetwork, setMyDownlines, setActivateSpinner,  setUserIDSponsor,setUserID, setLevel, setBoardNo, setAllowReload } from 'redux/reducers/NetworkReducer';
 //--------------------------------------
 
 export default function Users() {
 
   //  const { domain, title, desc, masterUser } = useSelector((state) => state.GeneralReducer)
-
+  //  const { width, height } = useWindowSize() //coffety
+    const { width } = useState(window.innerWidth) //coffety
+    const { height } = useState(window.innerHeight) //coffety
     const router = useRouter()
     const dispatch = useDispatch()
     const [itemLink, setItemLink] = useState()
@@ -25,6 +31,16 @@ export default function Users() {
     const { myNetwork, myDownlines, activateSpinner, allowReload } = useSelector((state) => state.NetworkReducer)
    
 
+
+    useEffect(() => {
+        if(myNetwork && myNetwork.isFull) {
+         dispatch(setConfety(true))
+         dispatch(setPlaySound('success'))
+         dispatch(setModalSuccessRanking(true))
+        }
+      
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [myNetwork])
 
     useEffect(() => {
         console.log('----get my downline-----')
@@ -50,6 +66,8 @@ export default function Users() {
         dispatch(setUserID(userId))
         dispatch(setLevel(level))
         dispatch(setBoardNo(boardNo))
+      
+       
       
        if(balance < myNetwork.value) {
       
@@ -110,7 +128,6 @@ export default function Users() {
     }
 
    
-
     return (
         <>
 
@@ -118,6 +135,7 @@ export default function Users() {
                 <title>VIPWALLET</title>
                 <meta name="description" content="Users Page" />
             </Head>
+
 
             <div className="min-h-screen pb-40 mx-3 ">
        

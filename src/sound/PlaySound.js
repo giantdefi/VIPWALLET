@@ -14,6 +14,7 @@ export default function PlaySound() {
     const soundVerified = useRef(null)
     const soundTransfer = useRef(null)
     const soundSuccess = useRef(null)
+    const soundapplause = useRef(null)
 
     const dispatch = useDispatch();
     const { allowSound } = useSelector((state) => state.SettingReducer)
@@ -23,29 +24,34 @@ export default function PlaySound() {
         let elm
         try {
 
-            if (soundEffect === 'error') {
+            if (soundEffect == 'error') {
                 elm = soundError.current
                 elm.play()
             }
-            if (soundEffect === 'click') {
+            if (soundEffect == 'click') {
                 elm = soundClick.current
                 elm.play()
             }
-            if (soundEffect === 'pling') {
+            if (soundEffect == 'pling') {
                 elm = soundPling.current
                 elm.play()
             }
-            if (soundEffect === 'verified') {
+            if (soundEffect == 'verified') {
                 elm = soundVerified.current
                 elm.play()
             }
-            if (soundEffect === 'transfer') {
+            if (soundEffect == 'transfer') {
                 elm = soundTransfer.current
                 elm.play()
             }
-            if (soundEffect === 'success') {
+            if (soundEffect == 'success') {
                 elm = soundSuccess.current
                 elm.play()
+
+            if (soundEffect == 'applause') {
+                    elm = soundapplause.current
+                    elm.play()
+                }
             }
 
         } catch (error) {
@@ -109,6 +115,12 @@ export default function PlaySound() {
 
             <audio ref={soundSuccess}
                 src="/sound/success.mp3">
+                Your browser does not support the
+                <code>audio</code> element.
+            </audio>
+
+            <audio ref={soundapplause}
+                src="/sound/applause.mp3">
                 Your browser does not support the
                 <code>audio</code> element.
             </audio>
