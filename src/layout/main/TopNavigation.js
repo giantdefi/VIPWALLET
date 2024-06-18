@@ -115,7 +115,7 @@ export default function TopNavigation() {
                       
                   
                     <Link href="/"><a className="flex-initial  w-[52px] h-[52px] p-2 rounded-full _gradient_slate">
-                        <img className="animate-spin-logo" src="/assets/img/logo-sm.png" alt="banner" />
+                        <img className="animate-spin-logo" src="/assets/img/logo-sm.png" alt="logo" />
                     </a></Link>
 
                     <a onClick={handleLogoClick} className="cursor-pointer  flex centered  w-[200px] mt-2 ">

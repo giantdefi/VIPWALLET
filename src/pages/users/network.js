@@ -126,8 +126,9 @@ export default function Users() {
             <div className="flex justify-end ">
                 <div className="flex centered"> <img src="/assets/img/dollar.webp" width="30" alt="logo" /> <span className="text-sm ml-1">Wallet : {wallet}</span></div>
                 </div>
-                <div className="flex flex-col centered py-2 mt-2 _gradient_green rounded-xl">
+                <div className="flex flex-col centered py-2 mt-2  rounded-xl">
                 <img src="/assets/img/rank-1.webp" className="rounded-full " alt="users" />
+              
                 <div className="w-1/2 bg-gray-800 border border-gray-500 rounded-full h-[6px] mt-5 holo flex items-center">
                 <div className="bg-yellow-600 h-[12px] rounded-full" style={{ width: ((100/6)*myNetwork.level) + '%' }}></div>
                 </div>
