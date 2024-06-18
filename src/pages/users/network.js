@@ -189,7 +189,7 @@ export default function Users() {
                                          <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
                                       
-                                       <div className="text-xs ml-2">Referral 1</div>
+                                       <div className="text-xs mr-6">Referral 1</div>
                                        </div>
                                 </>
                             }
@@ -237,7 +237,7 @@ export default function Users() {
                                 : <>
                                        <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
-                                       <div className="text-xs ml-2">Referral 2</div>
+                                       <div className="text-xs mr-6">Referral 2</div>
                                        </div>
                                 </>
                             }
@@ -272,7 +272,7 @@ export default function Users() {
                                 : <>
                                           <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
-                                       <div className="text-xs ml-2">Referral 3</div>
+                                       <div className="text-xs mr-6">Referral 3</div>
                                        </div>
                                 </>
                             }
@@ -308,7 +308,7 @@ export default function Users() {
                                 : <>
                                           <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
-                                       <div className="text-xs ml-2">Referral 4</div>
+                                       <div className="text-xs mr-6">Referral 4</div>
                                        </div>
                                 </>
                             }
@@ -342,7 +342,7 @@ export default function Users() {
                                 : <>
                                         <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div ><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
-                                       <div className="text-xs ml-2">Referral 5</div>
+                                       <div className="text-xs mr-6">Referral 5</div>
                                        </div>
                                 </>
                             }
@@ -386,7 +386,7 @@ export default function Users() {
                                          <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
                                       
-                                       <div className="text-xs ml-2">Referral 6</div>
+                                       <div className="text-xs mr-6">Referral 6</div>
                                        </div>
                                 </>
                             }
@@ -437,7 +437,7 @@ export default function Users() {
                                    : <>
                                           <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div ><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
-                                       <div className="text-xs ml-2">Referral 7</div>
+                                       <div className="text-xs mr-6">Referral 7</div>
                                        </div>
                                    </>
                                }
@@ -472,7 +472,7 @@ export default function Users() {
                                    : <>
                                         <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div ><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
-                                       <div className="text-xs ml-2">Referral 8</div>
+                                       <div className="text-xs mr-6">Referral 8</div>
                                        </div>
                                    </>
                                }
@@ -508,7 +508,7 @@ export default function Users() {
                                    : <>
                                          <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div ><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
-                                       <div className="text-xs ml-2">Referral 9</div>
+                                       <div className="text-xs mr-6">Referral 9</div>
                                        </div>
                                    </>
                                }
@@ -542,7 +542,7 @@ export default function Users() {
                                    : <>
                                         <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div ><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
-                                       <div className="text-xs ml-2">Referral 10</div>
+                                       <div className="text-xs mr-6">Referral 10</div>
                                        </div>
                                    </>
                                }
@@ -577,7 +577,7 @@ export default function Users() {
                                    : <>
                                         <div className="w-full flex justify-between items-center py-1 pr-10 h-10">
                                       <div ><i className="icofont-plus-circle text-2xl  text-white"></i>  </div> 
-                                       <div className="text-xs ml-2">Referral 11</div>
+                                       <div className="text-xs mr-6">Referral 11</div>
                                        </div>
                                    </>
                                }
