@@ -28,10 +28,12 @@ export default function MainLayout({ children }) { // not used yet!
  
   useEffect(() => {
   if(confety){
+    dispatch(setModalMessage(false)) // anoying
   setTimeout(() => {
      dispatch(setConfety(false))
      dispatch(setModalSuccessRanking(false))
-    },20000)
+     
+    },50000)
 
   }
   

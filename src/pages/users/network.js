@@ -43,7 +43,7 @@ export default function Users() {
     }, [myNetwork])
 
     useEffect(() => {
-        console.log('----get my downline-----')
+    
         if(!myNetwork) {
             handleGetNetwork()
         }
@@ -370,9 +370,9 @@ export default function Users() {
                         }
 </div>
                  
-<div className="text-center py-2 mt-2 bg-gray-700 rounded-full _gradient_green">
-                    <p className="uppercase text-[12px]">Congrats for 400% reward, </p> 
-                    <p className="uppercase text-[12px]">Let{"'"}s invite more friends</p>
+                <div className="text-center py-2 mt-2 bg-gray-700 rounded-full _gradient_green">
+                    <p className="uppercase text-[16px]">Congrats for 400% reward, </p> 
+                    <p className="uppercase text-[14px]">Let{"'"}s invite more friends</p>
                 </div>
 
   
@@ -422,10 +422,20 @@ export default function Users() {
 
                 <div className="flex justify-center rounded-full  bg-gray-700 mt-2">
                 <div className="text-center w-12 h-12 bg-red-700 rounded-full mt-1 pt-2 mr-5">
+               {myNetwork.empty_slot == 5 ?
+                <i className="icofont-rocket-alt-1 animate-ping text-3xl text-yellow-400 "></i>
+                :
                 <i className="icofont-rocket-alt-1 text-3xl text-yellow-400 "></i>
+               }
                 </div>
                 <div className="text-center py-2 mt-2 bg-gray-700 rounded-full ">
-                    <p className="uppercase text-sm">READY TO THE NEXT LEVEL - $50</p>
+                    <p className="uppercase text-sm">READY TO THE NEXT LEVEL - {" "} 
+                        {level == 1 && '$50'}
+                        {level == 2 && '$250'}
+                        {level == 3 && '$1250'}
+                        {level == 4 && '$6250'}
+                        {level == 5 && '$31.250'}
+                        </p>
                     <p className="text-xs"> Reward up to 1000%</p>
                 </div>
                 </div>

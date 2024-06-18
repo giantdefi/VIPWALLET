@@ -116,7 +116,7 @@ export default function Home() {
                     dispatch(setPhone(dataLogin.phone))
                     dispatch(setEmail(dataLogin.email))
                     dispatch(setIsActive(dataLogin.isActive))
-                    dispatch(setFullName(dataLogin.name)) 
+                  
                     dispatch(setBoardNo(dataLogin.boardNo)) 
                     dispatch(setLevel(dataLogin.level)) 
                     dispatch(setWallet(dataLogin.wallet)) 
