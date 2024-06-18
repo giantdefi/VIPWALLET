@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setPlaySound } from 'redux/reducers/SoundReducer'
 import {  setModalConfirmLogOut } from 'redux/reducers/ModalReducer'
 import { setModalMessage } from 'redux/reducers/ModalReducer'
+import { setAllowReloadData } from 'redux/reducers/AuthReducer';
 import { setAllowReload } from 'redux/reducers/NetworkReducer';
 //--------------------------------------
 
@@ -72,7 +73,11 @@ const handleReset = () => {
                 setMenuSpinner(false)                   
                 dispatch(setModalMessage({ type: 'success', title: "Reset Success!", message: response.data.message }))
              
-              dispatch(setAllowReload(true))
+              dispatch(setAllowReloadData(true)) // authReducer
+             
+              setTimeout(() => {
+              dispatch(setAllowReload(true)) // network
+              }, 500)
 
             } else {
               
