@@ -129,7 +129,7 @@ export default function Users() {
                 <div className="flex flex-col centered py-2 mt-2 _gradient_green rounded-xl">
                 <img src="/assets/img/rank-1.webp" className="rounded-full " alt="users" />
                 <div className="w-1/2 bg-gray-800 border border-gray-500 rounded-full h-[18px] mt-5 holo">
-                <div className="bg-orange-600 h-4 rounded-full" style={{ width: ((100/6)*level) + '%' }}></div>
+                <div className="bg-orange-600 h-4 rounded-full" style={{ width: ((100/6)*myNetwork.level) + '%' }}></div>
                 </div>
                     <p className="uppercase ">RANK LEVEL {myNetwork.level} = ${myNetwork.value}</p>
                     <p>Network No : #{myNetwork.boardNo}</p>
